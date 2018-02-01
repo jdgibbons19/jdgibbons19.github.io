@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Air Quality Tool</title>
+	
+	<style>	
+	td {
+		text-align: center;
+	}
+	
+	body {
+		background-color: #64b5f6;
+	}
+	
+	.slidecontainer {
+		width: 100%;
+	}
+
+	.slider {
+		-webkit-appearance: none;
+		width: 90%;
+		height: 5px;
+		border-radius: 5px;
+		background: #2C3E50;
+		outline: none;
+		opacity: 0.7;
+		-webkit-transition: .2s;
+		transition: opacity .2s;
+	}
+
+	.slider:hover {
+		opacity: 1;
+	}
+
+	.slider::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background: #F7DC6F;
+		cursor: pointer;
+	}
+
+	.slider::-moz-range-thumb {
+		width: 25px;
+		height: 25px;
+		background: #4CAF50;
+		cursor: pointer;
+	}
+	</style>
+  </head>
+  <h1>Air Quality Tool - Team Valor</h1>
+  
+  <p>The purpose of this tool is to provide the public an estimation of the air quality in any given location
+  Salt Lake County, Utah. Click on the map below to begin.</p>
+  
+  <hr>
+  
+  <table style="width:100%">
+  	<tr>
+		<form>
+			<b>Location Search:</b><br>
+			<input type="text" name="search"> <input type="submit">
+		</form>
+		<br>
+		<br>
+	</tr>
+	
+	<tr>
+		<td colspan="3">
+		<img src="https://www.denvergov.org/content/dam/denvergov/Portals/771/images/EQ/Air%20Quality/Air%20Pollution2.jpg" width="100%" height="75%">
+		</td>
+	</tr>
+	
+	<tr>
+		<td width="33%">
+			<div class="slidecontainer">
+			  <p>Vehicle Emissions Intensity:</p>
+			  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+			</div>
+			<br>
+		</td>
+		<td colspan="2">
+			<div class="slidecontainer">
+			  <p>Time of Day:</p>
+			  <input type="range" min="0" max="24" value="12" class="slider" id="myRange">
+			</div>
+			<br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+  </table>
+</html>
