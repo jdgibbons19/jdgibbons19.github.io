@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Air Quality Tool</title>
+	
+	<style>	
+	td {
+		text-align: center;
+	}
+	
+	h3 {
+		color: white;
+	}
+	
+	body {
+		background-color: #64b5f6;
+	}
+	
+	.slidecontainer {
+		width: 100%;
+	}
+
+	.slider {
+		-webkit-appearance: none;
+		width: 90%;
+		height: 5px;
+		border-radius: 5px;
+		background: #2C3E50;
+		outline: none;
+		opacity: 0.7;
+		-webkit-transition: .2s;
+		transition: opacity .2s;
+	}
+
+	.slider:hover {
+		opacity: 1;
+	}
+
+	.slider::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background: white;
+		cursor: pointer;
+	} 
+
+	.slider::-moz-range-thumb {
+		width: 25px;
+		height: 25px;
+		background: #4CAF50;
+		cursor: pointer;
+	}
+	</style>
+  </head>
+  <h1>Air Quality Tool - Team Valor</h1>
+  
+  <p>The purpose of this tool is to provide the public an estimation of the air quality in any given location
+  Salt Lake County, Utah. Click on the map below to begin.</p>
+  
+  <hr>
+  
+  <table style="width:100%">
+  	<tr>
+		<form>
+			<h3><b>Location Search:</b></h3>
+			<input type="text" name="search"> <input type="submit">
+		</form>
+		<br>
+		<br>
+	</tr>
+	
+	<tr>
+		<td colspan="3">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d177987.18189390126!2d-111.75023849425199!3d40.32670450408554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1517878614787" width="100%" height="800" frameborder="0" style="border:0" allowfullscreen></iframe>		</td>
+	</tr>
+	
+	<tr>
+		<td width="33%">
+			<div class="slidecontainer">
+			  <p style="color:white">Vehicle Emissions Intensity:</p>
+			  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+			</div>
+			<br>
+		</td>
+		<td colspan="2">
+			<div class="slidecontainer">
+			  <p style="color:white">Time of Day:</p>
+			  <input type="range" min="0" max="24" value="12" class="slider" id="myRange">
+			</div>
+			<br>
+		</td>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+  </table>
+</html>
