@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>My Unit Converter</title>
+	
+	<style>	
+	td {
+		text-align: left;
+	}
+	
+	body {
+		background-color: #2471A3;
+		color: white;
+	}
+	
+	div {
+		font-size: 30px;
+		text-align: right;
+	}
+	
+	h1, h3 {
+		color: white;
+	}
+	
+	.textbox {
+		padding: 10px 10px;
+		box-sizing: border-box;
+		margin: 8px 0;
+		font-size: 20px;
+	}
+	
+	.button, .button2 {
+		background-color: white;
+		border: 1;
+		color: black;
+		padding: 16px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		-webkit-transition-duration: 0.4s; /* Safari */
+		transition-duration: 0.4s;
+		cursor: pointer;
+		width: 160px;
+	}
+	
+	.button:hover {
+		background-color: green;
+		color: white;
+	}
+	
+	.button2:hover {
+		background-color: red;
+		color: white;
+	}
+	
+	/* Customize the label (the container) */
+	.container {
+	  display: block;
+	  position: relative;
+	  padding-left: 35px;
+	  margin-bottom: 12px;
+	  cursor: pointer;
+	  font-size: 22px;
+	  -webkit-user-select: none;
+	  -moz-user-select: none;
+	  -ms-user-select: none;
+	  user-select: none;
+	}
+
+	/* Hide the browser's default radio button */
+	.container input {
+	  position: absolute;
+	  opacity: 0;
+	}
+
+	/* Create a custom radio button */
+	.checkmark {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  height: 25px;
+	  width: 25px;
+	  background-color: #eee;
+	  border-radius: 50%;
+	}
+
+	/* On mouse-over, add a grey background color */
+	.container:hover input ~ .checkmark {
+	  background-color: #ccc;
+	}
+
+	/* When the radio button is checked, add a blue background */
+	.container input:checked ~ .checkmark {
+	  background-color: #2196F3;
+	}
+
+	/* Create the indicator (the dot/circle - hidden when not checked) */
+	.checkmark:after {
+	  content: "";
+	  position: absolute;
+	  display: none;
+	}
+
+	/* Show the indicator (dot/circle) when checked */
+	.container input:checked ~ .checkmark:after {
+	  display: block;
+	}
+
+	/* Style the indicator (dot/circle) */
+	.container .checkmark:after {
+	  top: 9px;
+	  left: 9px;
+	  width: 8px;
+	  height: 8px;
+	  border-radius: 50%;
+	  background: white;
+}
+	
+	</style>
+  </head>
+  <h1>Da Best Unit Converter</h1>
+  <h3>By: Josh Gibbons</h3>
+  <hr>
+  
+  <table style="width=100%">
+	<tr>
+		<td width="10%"></td>
+		<td width="15%">
+			<i class="glyphicon glyphicon-pencil"></i>
+			<h3>Enter a numerical length value:</h3><br>
+			<input class="textbox" type="text" id="Input" onchange="ClearResult()">
+		</td>
+		<td width="5%"></td>
+		<td width="20%">
+			<h3>Select the ORIGINAL unit:</h3><br>
+			<form action="">
+				<label class="container">Inches
+					<input type="radio" name="unit" id="i-inches"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Feet
+					<input type="radio" name="unit" id="i-feet"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Yards
+					<input type="radio" name="unit" id="i-yards"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Miles
+					<input type="radio" name="unit" id="i-miles"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Meters
+					<input type="radio" name="unit" id="i-meters"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Kilometers
+					<input type="radio" name="unit" id="i-kilometers"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Cubits
+					<input type="radio" name="unit" id="i-cubits"> <br>
+					<span class="checkmark"></span>
+				</label>
+			</form>
+		</td>
+		<td width="5%"></td>
+		<td width="20%">
+			<h3>Select the NEW unit:</h3><br>
+			<form action="">
+				<label class="container">Inches
+					<input type="radio" name="ounit" id="o-inches"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Feet
+					<input type="radio" name="ounit" id="o-feet"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Yards
+					<input type="radio" name="ounit" id="o-yards"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Miles
+					<input type="radio" name="ounit" id="o-miles"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Meters
+					<input type="radio" name="ounit" id="o-meters"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Kilometers
+					<input type="radio" name="ounit" id="o-kilometers"> <br>
+					<span class="checkmark"></span>
+				</label>
+				<label class="container">Cubits
+					<input type="radio" name="ounit" id="o-cubits"> <br>
+					<span class="checkmark"></span>
+				</label>
+			</form>
+		</td>
+		<td width="5%"></td>
+		<td width="10%">
+			<button class="button" onClick="ConvFunction()">Convert!</button><br>
+			<button class="button2" onClick="ClearAll()">Clear All</button>
+			<button class="button2" onClick="ClearResult()">Clear Result</button>
+		</td>
+		<td width="10%"></td>
+	</tr>
+	<tr>
+		<td colspan="4" width="100%">
+			<br><b><div id="result"></div></b>
+		<td></td>
+	</tr>
+  
+  
+  
+  </table>
+  
+  <script language=javascript>
+	function ConvFunction()	{
+		var InputUnit = "None"
+		var OutputUnit = "None"
+		var InputLength = document.getElementById("Input").value
+		var OutputLength = 0
+		
+		if (document.getElementById("i-inches").checked) {
+			InputUnit = "Inches"
+		} else if (document.getElementById("i-feet").checked) {
+			InputUnit = "Feet"
+		} else if (document.getElementById("i-yards").checked ) {
+			InputUnit = "Yards"
+		} else if (document.getElementById("i-miles").checked ) {
+			InputUnit = "Miles"
+		} else if (document.getElementById("i-meters").checked) {
+			InputUnit = "Meters"
+		} else if (document.getElementById("i-kilometers").checked) {
+			InputUnit = "Kilometers"
+		} else if (document.getElementById("i-cubits").checked) {
+			InputUnit = "Cubits"
+		} else {
+			InputUnit = "None"
+		}
+		
+		if (document.getElementById("o-inches").checked) {
+			OutputUnit = "Inches"
+		} else if (document.getElementById("o-feet").checked) {
+			OutputUnit = "Feet"
+		} else if (document.getElementById("o-yards").checked) {
+			OutputUnit = "Yards"
+		} else if (document.getElementById("o-miles").checked) {
+			OutputUnit = "Miles"
+		} else if (document.getElementById("o-meters").checked) {
+			OutputUnit = "Meters"
+		} else if (document.getElementById("o-kilometers").checked) {
+			OutputUnit = "Kilometers"
+		} else if (document.getElementById("o-cubits").checked) {
+			OutputUnit = "Cubits"
+		} else {
+			OutputUnit = "None"
+		}
+		
+		if (InputUnit == "None" || OutputUnit == "None") {
+			alert("Please choose the desired units before proceeding.");
+			return;
+		}
+		
+		if (isNaN(InputLength) || InputLength == 0) {
+			alert("Please enter a valid length before proceeding.");
+			return;
+		}
+		
+		<!--Convert input to feet.-->
+		if (InputUnit == "Inches") {
+			OutputLength = InputLength / 12;
+		} else if (InputUnit == "Feet") {
+			OutputLength = InputLength;
+		} else if (InputUnit == "Yards") {
+			OutputLength = InputLength * 3;
+		} else if (InputUnit == "Miles") {
+			OutputLength = InputLength * 5280;
+		} else if (InputUnit == "Meters") {
+			OutputLength = InputLength * 3.28084;
+		} else if (InputUnit == "Kilometers") {
+			OutputLength = InputLength * 3280.84;
+		} else if (InputUnit == "Cubits") {
+			OutputLength = InputLength * 1.5;
+		}
+		
+		<!--Convert to final unit.-->
+		if (OutputUnit == "Inches") {
+			OutputLength = OutputLength * 12;
+		} else if (OutputUnit == "Feet") {
+			OutputLength = OutputLength;
+		} else if (OutputUnit == "Yards") {
+			OutputLength = OutputLength / 3;
+		} else if (OutputUnit == "Miles") {
+			OutputLength = OutputLength / 5280;
+		} else if (OutputUnit == "Meters") {
+			OutputLength = OutputLength / 3.28084;
+		} else if (OutputUnit == "Kilometers") {
+			OutputLength = OutputLength / 3280.84;
+		} else if (OutputUnit == "Cubits") {
+			OutputLength = OutputLength / 1.5;
+		}
+		
+		document.getElementById("result").innerHTML=InputLength + " " + InputUnit + " is equal to " + Number(Math.round(OutputLength+'e4')+'e-4') + " " + OutputUnit + ".";
+	}
+	
+	function ClearResult() {
+		document.getElementById("result").innerHTML="";
+	}
+	
+	function ClearAll() {
+		document.getElementById("result").innerHTML="";
+		
+		document.getElementById("i-inches").checked = false;
+		document.getElementById("i-feet").checked = false;
+		document.getElementById("i-yards").checked = false;
+		document.getElementById("i-miles").checked = false;
+		document.getElementById("i-meters").checked = false;
+		document.getElementById("i-kilometers").checked = false;
+		document.getElementById("i-cubits").checked = false;
+		document.getElementById("o-inches").checked = false;
+		document.getElementById("o-feet").checked = false;
+		document.getElementById("o-yards").checked = false;
+		document.getElementById("o-miles").checked = false;
+		document.getElementById("o-kilometers").checked = false;
+		document.getElementById("o-cubits").checked = false;
+		document.getElementById("o-meters").checked = false;
+		
+		document.getElementById("Input").value = "";
+	}
+  </script>
+  
+
+</html>
